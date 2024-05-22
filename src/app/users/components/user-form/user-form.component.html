@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ user?.id ? 'Editar Usuario' : 'Crear Usuario' }}</h5>
+  <button type="button" class="close" aria-label="Close" (click)="cancel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="usuario">Usuario</label>
+      <input type="text" class="form-control" id="usuario" [(ngModel)]="user.usuario" name="usuario" required>
+      <!-- <div *ngIf="!user.usuario" class="text-danger">El usuario es obligatorio</div> -->
+    </div>
+    <div class="form-group">
+      <label for="primerNombre">Primer Nombre</label>
+      <input type="text" class="form-control" id="primerNombre" [(ngModel)]="user.primerNombre" name="primerNombre" required>
+    </div>
+    <div class="form-group">
+      <label for="segundoNombre">Segundo Nombre</label>
+      <input type="text" class="form-control" id="segundoNombre" [(ngModel)]="user.segundoNombre" name="segundoNombre" required>
+    </div>
+    <div class="form-group">
+      <label for="primerApellido">Primer Apellido</label>
+      <input type="text" class="form-control" id="primerApellido" [(ngModel)]="user.primerApellido" name="primerApellido" required>
+    </div>
+    <div class="form-group">
+      <label for="segundoApellido">Segundo Apellido</label>
+      <input type="text" class="form-control" id="segundoApellido" [(ngModel)]="user.segundoApellido" name="segundoApellido" required>
+    </div>
+    <div class="form-group">
+      <label for="departamento">Departamento</label>
+      <select class="form-control" id="departamento" [(ngModel)]="user.idDepartamento" name="departamento" required>
+        <option *ngFor="let department of departments" [value]="department.id">{{ department.nombre }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="cargo">Cargo</label>
+      <select class="form-control" id="cargo" [(ngModel)]="user.idCargo" name="cargo" required>
+        <option *ngFor="let position of positions" [value]="position.id">{{ position.nombre }}</option>
+      </select>  
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+  <button type="button" class="btn btn-primary"  [disabled]="" (click)="save()">Guardar</button>
+</div>

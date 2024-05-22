@@ -1,0 +1,28 @@
+<div class="">
+    <div class="row mb-3">
+      <div class="col-md-3  ">
+        <select class="form-control" [(ngModel)]="selectedDepartment" (change)="applyFilters()">
+          <option value="">Seleccione un Departamento</option>
+          <option *ngFor="let department of departments" [value]="department.nombre">{{ department.nombre }}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" [(ngModel)]="selectedPosition" (change)="applyFilters()">
+          <option value="">Seleccione un Cargo</option>
+          <option *ngFor="let position of positions" [value]="position.nombre">{{ position.nombre }}</option>
+        </select>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="row justify-content-end">
+          <div class="col-sm-12 col-md-8"  style="text-align: end;" >
+            <button class="btn btn-primary" (click)="openUserForm()">Crear nuevo usuario</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+    <user-table [users]="filteredUsers" (editUser)="openUserForm($event)" (deleteUser)="deleteUser($event)"></user-table>
+  </div>
+  
