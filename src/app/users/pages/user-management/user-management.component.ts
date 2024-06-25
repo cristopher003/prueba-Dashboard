@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserFormComponent } from '../../components/user-form/user-form.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'user-management',
@@ -65,7 +66,10 @@ export class UserManagementComponent {
   }
 
   deleteUser(id: number): void {
-    this.userService.deleteUser(id);
-    this.loadUsers();
+    this.userService.deleteUser(id).subscribe(resp=>{
+      Swal.fire({  icon: 'success',title:"Usuario eliminado !",text:""});
+      this.loadUsers();
+    });
+  
   }
 }

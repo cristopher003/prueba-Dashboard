@@ -13,6 +13,7 @@ export interface User {
     idDepartamento:number;
     department?: Department;
     position?:Position;
+    cedula:string;
     email: string;
   }
 

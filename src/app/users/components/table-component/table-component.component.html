@@ -4,6 +4,7 @@
         <th>Usuario</th>
         <th>Nombres</th>
         <th>Apellidos</th>
+        <th>Cedula</th>
         <th>Departamento</th>
         <th>Cargo</th>
         <th>Email</th>
@@ -15,12 +16,13 @@
         <td>{{ user.usuario }}</td>
         <td>{{ user.primerNombre }} {{ user.segundoNombre }}</td>
         <td>{{ user.primerApellido }} {{ user.segundoApellido }}</td>
+        <td>{{ user.cedula}}</td>
         <td>{{ user.department?.nombre}}</td>
         <td>{{ user.position?.nombre }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <label class="text-success p-3 " (click)="onEdit(user)"><strong>Editar</strong> </label>
-          <label class="text-danger p-3 " (click)="onDelete(user.id)"><strong>Eliminar</strong> </label>
+          <label class="text-success p-3 " type="button" (click)="onEdit(user)"><strong>Editar</strong> </label>
+          <label class="text-danger p-3 " type="button" (click)="onDelete(user.id)"><strong>Eliminar</strong> </label>
         </td>
       </tr>
     </tbody>
